@@ -9,6 +9,7 @@ import com.lemon.yandexmaptestapp.fragments.ClickFragment;
 import com.lemon.yandexmaptestapp.fragments.FragmentViewListener;
 import com.lemon.yandexmaptestapp.fragments.LocationInfoFragment;
 import com.lemon.yandexmaptestapp.fragments.MapFragment;
+import com.yandex.mapkit.MapKitFactory;
 
 public class MainActivity extends AppCompatActivity implements FragmentViewListener {
 
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity implements FragmentViewListe
                     .setReorderingAllowed(true)
                     .add(R.id.fragment_container_view, ClickFragment.class, null)
                     .commit();
+            MapKitFactory.setApiKey(Constants.YANDEX_MAPS_API_KEY);
+            MapKitFactory.initialize(this);
         }
     }
 

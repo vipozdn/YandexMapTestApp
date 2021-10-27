@@ -13,6 +13,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.lemon.yandexmaptestapp.R;
+import com.yandex.mapkit.MapKitFactory;
+import com.yandex.mapkit.mapview.MapView;
 
 public class MapFragment extends Fragment {
     public MapFragment() {
@@ -20,6 +22,7 @@ public class MapFragment extends Fragment {
     }
 
     private FragmentViewListener fragmentViewListener;
+    private MapView mapView;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -38,7 +41,7 @@ public class MapFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_map, container, false);
         Button mapButton = (Button) view.findViewById(R.id.fragment_map_button);
-
+        mapView =(MapView) view.findViewById(R.id.mapview);
         mapButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,5 +51,19 @@ public class MapFragment extends Fragment {
         });
 
         return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        MapKitFactory.getInstance().onStart();
+        mapView.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        mapView.onStop();
+        MapKitFactory.getInstance().onStop();
+        super.onStop();
     }
 }
