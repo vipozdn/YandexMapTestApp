@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/fragment_map_button"
         android:layout_centerHorizontal="true"
-        android:text="Second Fragment!" />
+        android:text="@string/click_on_map_to_set_location" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/fragment_map_button"
@@ -22,6 +22,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Show Location Info" />
+        android:text="@string/show_location_info" />
 
 </RelativeLayout>

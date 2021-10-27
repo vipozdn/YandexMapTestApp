@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">YandexMapTestApp</string>
+    <string name="need_internet">Please connect to Internet to see your Address next time!</string>
+    <string name="location_result">Address: %1$s \n lat: %2$s \n lon: %3$s</string>
+    <string name="location_permission_granted">Permission Granted! Location Available now!</string>
+    <string name="location_permission_denied">Permission is denied! Location unavailable!</string>
+    <string name="keep_location_on">Please keep your Location on</string>
+    <string name="show_on_map">Show on Map</string>
+    <string name="click_to_set_marker">Please click map to set marker!</string>
+    <string name="click_on_map_to_set_location">Click on map to set location</string>
+    <string name="show_location_info">Show Location Info</string>
+    <string name="results">Results</string>
+
 </resources>

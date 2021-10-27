@@ -7,16 +7,17 @@
         android:id="@+id/click_fragment_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_above="@+id/fragment_click_button"
+        android:layout_centerHorizontal="true"
         android:layout_margin="4dp"
-        android:text="First Fragment!" />
+        android:text="@string/keep_location_on" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/fragment_click_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/click_fragment_text_view"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Show on Map" />
+        android:text="@string/show_on_map" />
 
 </RelativeLayout>

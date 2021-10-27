@@ -4,10 +4,11 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.textview.MaterialTextView
+        android:layout_margin="4dp"
         android:id="@+id/result_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Third Fragment!" />
+        android:text="@string/results" />
 
 </RelativeLayout>
