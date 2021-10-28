@@ -37,3 +37,4 @@ obj/
 .externalNativeBuild
 
 Constants.java
+app/debug/

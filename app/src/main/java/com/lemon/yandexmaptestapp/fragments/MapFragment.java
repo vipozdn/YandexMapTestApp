@@ -95,38 +95,8 @@ public class MapFragment extends Fragment {
         mapView.onStart();
 
         MapKit mapKit = MapKitFactory.getInstance();
-        mapKit.createLocationManager().requestSingleUpdate(new LocationListener() {
-            @Override
-            public void onLocationUpdated(@NonNull Location location) {
-                mapView.getMap().move(
-                        new CameraPosition(location.getPosition(), 14.0f, 0.0f, 0.0f),
-                        new Animation(Animation.Type.SMOOTH, 1),
-                        null);
-
-            }
-
-            @Override
-            public void onLocationStatusUpdated(@NonNull LocationStatus locationStatus) {
-
-            }
-        });
-
-        mapView.getMap().addInputListener(new InputListener() {
-            @Override
-            public void onMapTap(@NonNull Map map, @NonNull Point point) {
-                map.getMapObjects().clear();
-                map.getMapObjects().addPlacemark(point, ImageProvider.fromBitmap(getMarkerBitmap()));
-                currentPoint = point;
-
-                String points = point.getLatitude() + ", " + point.getLongitude();
-                mapTextView.setText(points);
-            }
-
-            @Override
-            public void onMapLongTap(@NonNull Map map, @NonNull Point point) {
-
-            }
-        });
+        mapKit.createLocationManager().requestSingleUpdate(locationListener);
+        mapView.getMap().addInputListener(tapListener);
     }
 
     @Override
@@ -165,4 +135,35 @@ public class MapFragment extends Fragment {
         }
         return result;
     }
+
+    private final InputListener tapListener = new InputListener() {
+        @Override
+        public void onMapTap(@NonNull Map map, @NonNull Point point) {
+            map.getMapObjects().clear();
+            map.getMapObjects().addPlacemark(point, ImageProvider.fromBitmap(getMarkerBitmap()));
+            currentPoint = point;
+            String points = point.getLatitude() + ", " + point.getLongitude();
+            mapTextView.setText(points);
+        }
+
+        @Override
+        public void onMapLongTap(@NonNull Map map, @NonNull Point point) {
+
+        }
+    };
+
+    private final LocationListener locationListener = new LocationListener() {
+        @Override
+        public void onLocationUpdated(@NonNull Location location) {
+            mapView.getMap().move(
+                    new CameraPosition(location.getPosition(), 14.0f, 0.0f, 0.0f),
+                    new Animation(Animation.Type.SMOOTH, 1),
+                    null);
+        }
+
+        @Override
+        public void onLocationStatusUpdated(@NonNull LocationStatus locationStatus) {
+
+        }
+    };
 }
